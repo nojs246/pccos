@@ -899,6 +899,29 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+// 实时更新时间
+function updateTime() {
+    const now = new Date();
+    document.getElementById("time").innerText =
+        now.toLocaleTimeString('zh-CN', { hour12: false });
+}
+setInterval(updateTime, 1000);
+updateTime();
+
+// IP定位城市
+fetch("https://ipapi.co/json/")
+  .then(res => res.json())
+  .then(data => {
+      const city = data.city || "未知";
+      const country = data.country_name || "";
+      document.getElementById("location").innerText = city + (country ? " · " + country : "");
+  })
+  .catch(() => {
+      document.getElementById("location").innerText = "未知位置";
+  });
+</script>
+  
 </body>
 
 </html>
