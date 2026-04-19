@@ -206,5 +206,11 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+<script>
+setInterval(() => {
+  const el = document.getElementById("current-time");
+  if (el) el.innerText = new Date().toLocaleString();
+}, 1000);
+</script>
 
 })();
