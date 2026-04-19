@@ -27,13 +27,6 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Squadfree
-  * Template URL: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 <header id="header" class="header d-flex align-items-center fixed-top">
   <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
@@ -910,7 +903,7 @@ setInterval(updateTime, 1000);
 updateTime();
 
 // IP定位城市
-fetch("https://ipapi.co/json/")
+fetch("https://api.bigdatacloud.net/data/reverse-geocode-client?localityLanguage=zh")
   .then(res => res.json())
   .then(data => {
       const city = data.city || "未知";
