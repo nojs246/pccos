@@ -206,25 +206,5 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
- <script>
-// 时间
-function updateTime() {
-  const now = new Date();
-  document.getElementById("current-time").innerText = now.toLocaleString();
-}
-setInterval(updateTime, 1000);
-updateTime();
-
-// IP地区
-fetch("https://ipapi.co/json/")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("user-location").innerText =
-      data.country_name + " " + data.city;
-  })
-  .catch(() => {
-    document.getElementById("user-location").innerText = "地区获取失败";
-  });
-</script> 
 
 })();
