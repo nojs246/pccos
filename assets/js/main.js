@@ -206,35 +206,25 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
-  // 显示时间 + IP地区
-function loadInfo() {
-  const infoEl = document.getElementById("info");
-  if (!infoEl) return;
-
-  // 先显示时间
-  function updateTime(location = "Loading...") {
-    const now = new Date();
-    const time = now.toLocaleString();
-    infoEl.innerText = location + " | " + time;
-  }
-
-  updateTime();
-
-  // 获取IP地区
-  fetch("https://ipapi.co/json/")
-    .then(res => res.json())
-    .then(data => {
-      const location = data.city + ", " + data.country_name;
-      updateTime(location);
-
-      // 每秒更新时间
-      setInterval(() => updateTime(location), 1000);
-    })
-    .catch(() => {
-      setInterval(() => updateTime("Unknown"), 1000);
-    });
+ <script>
+// 时间
+function updateTime() {
+  const now = new Date();
+  document.getElementById("current-time").innerText = now.toLocaleString();
 }
+setInterval(updateTime, 1000);
+updateTime();
 
-// 页面加载后执行
-window.addEventListener("load", loadInfo);
+// IP地区
+fetch("https://ipapi.co/json/")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("user-location").innerText =
+      data.country_name + " " + data.city;
+  })
+  .catch(() => {
+    document.getElementById("user-location").innerText = "地区获取失败";
+  });
+</script> 
+
 })();
