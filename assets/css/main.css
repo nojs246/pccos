@@ -1726,15 +1726,22 @@ section,
   color: var(--accent-color);
 }
 
-.service-details ul i {
-  font-size: 20px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
 
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* 你新加的 */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#info {
+  font-size: 14px;
+  color: #0a2540;
 }
